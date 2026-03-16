@@ -6,10 +6,6 @@ import { getAuthSession } from "@/lib/auth/session";
 import { db } from "@/lib/db/client";
 import { users } from "@/lib/db/schema";
 
-// Purpose: Server route entry for /dashboard.
-// Keep auth checks and database reads in this file,
-// then pass prepared props into `client.tsx`.
-
 function getGreeting(): string {
   const hour = new Date().getHours();
   if (hour < 12) return "Good morning";
@@ -33,6 +29,7 @@ export default async function DashboardPage() {
     <Client
       greeting={getGreeting()}
       firstName={firstName}
+      brand="InboxPilot"
     />
   );
 }
