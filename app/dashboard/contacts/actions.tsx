@@ -1,11 +1,12 @@
 "use server";
 
 import { db } from "@/lib/db/client";
-import { contacts } from "@/lib/db/schema";
-import { and, eq, ilike, or } from "drizzle-orm";
+import { contacts, teamMembers } from "@/lib/db/schema";
+import { and, eq, ilike } from "drizzle-orm";
 import { getAuthSession } from "@/lib/auth/session";
 
 // Only async server actions exported – move types/zod outside this file!
+
 export async function createContactAction(formData: FormData) {
   try {
     const session = await getAuthSession();
@@ -20,10 +21,12 @@ export async function createContactAction(formData: FormData) {
     // Enforce minimal validation here
     if (!email.includes("@")) return { status: "error", message: "Invalid email." };
 
-    const existing = await db.query.contacts.findFirst({
-      where: (c) => and(eq(c.teamId, teamId), ilike(c.email, email)),
-    });
-    if (existing) {
+    const existing = await db
+      .select()
+      .from(contacts)
+      .where(and(eq(contacts.teamId, teamId), ilike(contacts.email, email)))
+      .limit(1);
+    if (existing[0]) {
       return { status: "error", message: "A contact with that email already exists." };
     }
 
@@ -55,16 +58,18 @@ export async function updateContactAction(formData: FormData) {
     const status = formData.get("status")?.toString() as "active" | "unsubscribed" | "bounced";
     const optIn = formData.get("optIn") === "on" || formData.get("optIn") === "true";
 
-    // Uniqueness check except self
-    const exists = await db.query.contacts.findFirst({
-      where: (c) =>
+    const exists = await db
+      .select()
+      .from(contacts)
+      .where(
         and(
-          eq(c.teamId, teamId),
-          ilike(c.email, email),
-          c.id !== id
-        ),
-    });
-    if (exists) {
+          eq(contacts.teamId, teamId),
+          ilike(contacts.email, email),
+          eq(contacts.id, id) === false // not self
+        )
+      )
+      .limit(1);
+    if (exists[0]) {
       return { status: "error", message: "That email is already in use for another contact." };
     }
 
@@ -121,11 +126,7 @@ export async function optOutContactAction(formData: FormData) {
 export async function getContactsAction() {
   const session = await getAuthSession();
   if (!session) throw new Error("Not authenticated");
-  const member = await db.query.teamMembers.findFirst({
-    where: (m) => eq(m.userId, session.userId),
-  });
-  if (!member) throw new Error("No team membership found.");
-  const teamId = member.teamId;
+  const teamId = await getTeamIdBySession();
 
   const rows = await db
     .select()
@@ -146,9 +147,12 @@ export async function getContactsAction() {
 async function getTeamIdBySession() {
   const session = await getAuthSession();
   if (!session) throw new Error("Not authenticated");
-  const member = await db.query.teamMembers.findFirst({
-    where: (m) => eq(m.userId, session.userId),
-  });
+  const teamRows = await db
+    .select()
+    .from(teamMembers)
+    .where(eq(teamMembers.userId, session.userId))
+    .limit(1);
+  const member = teamRows[0];
   if (!member) throw new Error("No team membership found.");
   return member.teamId;
 }
