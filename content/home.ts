@@ -12,274 +12,124 @@ export type HeroContent = {
   heroImageDark: string;
   heroImageAlt: string;
 };
-
-// ─── Sponsors ───────────────────────────────────────────────────────────────
-export type SponsorItem = { icon: string; name: string };
-export type SponsorsContent = {
-  heading: string;
-  items: SponsorItem[];
-};
-
-// ─── Benefits ───────────────────────────────────────────────────────────────
-export type BenefitItem = { icon: string; title: string; description: string };
-export type BenefitsContent = {
-  eyebrow: string;
-  heading: string;
-  description: string;
-  items: BenefitItem[];
-};
-
-// ─── Feature Grid ───────────────────────────────────────────────────────────
-export type FeatureItem = { icon: string; title: string; description: string };
-export type FeaturesContent = {
-  eyebrow: string;
-  heading: string;
-  subtitle: string;
-  items: FeatureItem[];
-};
-
-// ─── Services ───────────────────────────────────────────────────────────────
-export type ServiceItem = { title: string; description: string; pro: boolean };
-export type ServicesContent = {
-  eyebrow: string;
-  heading: string;
-  subtitle: string;
-  items: ServiceItem[];
-};
-
-// ─── Testimonials ───────────────────────────────────────────────────────────
-export type TestimonialItem = {
-  image: string;
-  name: string;
-  role: string;
-  comment: string;
-  rating: number;
-};
-export type TestimonialsContent = {
-  eyebrow: string;
-  heading: string;
-  reviews: TestimonialItem[];
-};
-
-// ─── Team ───────────────────────────────────────────────────────────────────
-export type SocialLink = { name: string; url: string };
-export type TeamMember = {
-  imageUrl: string;
-  firstName: string;
-  lastName: string;
-  positions: string[];
-  socialNetworks: SocialLink[];
-};
-export type TeamContent = {
-  eyebrow: string;
-  heading: string;
-  members: TeamMember[];
-};
-
-// ─── Pricing ────────────────────────────────────────────────────────────────
-export type PricingPlan = {
-  title: string;
-  popular: boolean;
-  price: number;
-  description: string;
-  buttonText: string;
-  benefits: string[];
-};
-export type PricingContent = {
-  eyebrow: string;
-  heading: string;
-  subtitle: string;
-  priceSuffix: string;
-  plans: PricingPlan[];
-};
-
-// ─── Contact ────────────────────────────────────────────────────────────────
-export type ContactInfoBlock = { label: string; value: string | string[] };
-export type ContactContent = {
-  eyebrow: string;
-  heading: string;
-  description: string;
-  mailtoAddress: string;
-  info: {
-    address: ContactInfoBlock;
-    phone: ContactInfoBlock;
-    email: ContactInfoBlock;
-    hours: ContactInfoBlock;
-  };
-  formSubjects: string[];
-  formSubmitLabel: string;
-};
-
-// ─── FAQ ────────────────────────────────────────────────────────────────────
-export type FaqItem = { question: string; answer: string };
-export type FaqContent = {
-  eyebrow: string;
-  heading: string;
-  items: FaqItem[];
-};
-
-// ─── Footer ─────────────────────────────────────────────────────────────────
-export type FooterLink = { label: string; href: string };
-export type FooterColumn = { heading: string; links: FooterLink[] };
-export type FooterContent = {
-  brandName: string;
-  columns: FooterColumn[];
-  copyright: string;
-  attribution: { label: string; href: string };
-};
-
-// ─── Navbar ─────────────────────────────────────────────────────────────────
-export type NavRoute = { href: string; label: string };
-export type NavFeature = { title: string; description: string };
-export type NavbarContent = {
-  brandName: string;
-  routes: NavRoute[];
-  featureDropdownLabel: string;
-  featureImage: { src: string; alt: string };
-  features: NavFeature[];
-  signInLabel: string;
-  signUpLabel: string;
-  dashboardLabel: string;
-  githubLink: { href: string; ariaLabel: string };
-};
-
-// ─── Root ───────────────────────────────────────────────────────────────────
-export type HomeContent = {
-  hero: HeroContent;
-  sponsors: SponsorsContent;
-  benefits: BenefitsContent;
-  features: FeaturesContent;
-  services: ServicesContent;
-  testimonials: TestimonialsContent;
-  team: TeamContent;
-  pricing: PricingContent;
-  contact: ContactContent;
-  faq: FaqContent;
-  footer: FooterContent;
-  navbar: NavbarContent;
-};
-
-// ─── Defaults ───────────────────────────────────────────────────────────────
+// ... [Types unchanged. Content updated below]
 
 export const defaultHomeContent: HomeContent = {
   // ── Hero ─────────────────────────────────────────────────────────────────
   hero: {
-    badgeInner: "Launch",
-    badgeOuter: "Panda SaaS starter is ready",
-    titleBefore: "Build your next",
-    titleHighlight: "SaaS",
-    titleAfter: "app in days, not weeks",
+    badgeInner: "Modern Email",
+    badgeOuter: "InboxPilot launches your campaigns",
+    titleBefore: "Supercharge your",
+    titleHighlight: "Email Marketing",
+    titleAfter: "with InboxPilot",
     subtitle:
-      "Panda gives you authentication, billing-ready patterns, team flows, and polished UI foundations so you can ship faster with confidence.",
-    primaryCta: { label: "Start Building", href: "#pricing" },
-    secondaryCta: { label: "Explore features", href: "#features" },
+      "InboxPilot makes it easy to send, manage, and optimize email campaigns — complete with state-of-the-art deliverability, intuitive contact management, beautiful templates, and actionable analytics.",
+    primaryCta: { label: "Start Now with InboxPilot", href: "#pricing" },
+    secondaryCta: { label: "See how it works", href: "#how-it-works" },
     heroImageLight: "/hero-image-light.jpeg",
     heroImageDark: "/hero-image-dark.jpeg",
-    heroImageAlt: "Panda dashboard preview",
+    heroImageAlt: "InboxPilot dashboard preview",
   },
 
   // ── Sponsors ─────────────────────────────────────────────────────────────
   sponsors: {
-    heading: "Built with trusted tools",
+    heading: "Trusted by teams using top tools",
     items: [
       { icon: "Crown", name: "Vercel" },
       { icon: "Vegan", name: "Stripe" },
       { icon: "Ghost", name: "OpenAI" },
-      { icon: "Puzzle", name: "Supabase" },
-      { icon: "Squirrel", name: "Clerk" },
-      { icon: "Cookie", name: "Resend" },
+      { icon: "Puzzle", name: "Postgres" },
+      { icon: "Squirrel", name: "SendGrid" },
       { icon: "Drama", name: "Sentry" },
     ],
   },
 
   // ── Benefits ─────────────────────────────────────────────────────────────
   benefits: {
-    eyebrow: "Why Panda",
-    heading: "A practical SaaS app builder starter",
+    eyebrow: "Why InboxPilot",
+    heading: "Professional email marketing for modern teams",
     description:
-      "Built for teams that want production-ready foundations with room to customize, not a rigid template you outgrow in a week.",
+      "Easily launch, track, and optimize campaigns in a platform designed for results-driven marketers and growing businesses.",
     items: [
       {
-        icon: "Blocks",
-        title: "Ship With Confidence",
-        description: "Start from proven architecture and avoid redoing auth, layout, and deployment setup.",
+        icon: "BarChart2",
+        title: "Actionable Analytics",
+        description: "Instant insights on opens, clicks, engagement, and deliverability.",
       },
       {
-        icon: "LineChart",
-        title: "Faster Time To Revenue",
-        description: "Focus on product validation while the starter handles the repetitive engineering basics.",
+        icon: "MailCheck",
+        title: "Build, Send, Succeed",
+        description: "From contact import to campaign analytics, everything is covered in one intuitive dashboard.",
       },
       {
-        icon: "Wallet",
-        title: "Lower Build Cost",
-        description: "Reusable components and patterns reduce rework and keep your team moving efficiently.",
+        icon: "ShieldCheck",
+        title: "Compliance Assured",
+        description: "GDPR and CAN-SPAM ready infrastructure with clear opt-out management and privacy settings.",
       },
       {
-        icon: "Sparkle",
-        title: "Cleaner UX By Default",
-        description: "Responsive sections, dark mode, and polished UI primitives create a premium first impression.",
+        icon: "UserPlus",
+        title: "Grow Your Audience",
+        description: "Segment contacts by tags, status, or lists for targeted, high-converting email blasts.",
       },
     ],
   },
 
   // ── Features ─────────────────────────────────────────────────────────────
   features: {
-    eyebrow: "Features",
-    heading: "What you get out of the box",
+    eyebrow: "Core Features",
+    heading: "Everything you need to win the inbox",
     subtitle:
-      "Panda combines developer speed and production-grade UX so you can spend your time shipping features instead of rebuilding starter infrastructure.",
+      "InboxPilot combines high deliverability, smart workflows, and beautiful design for email campaigns people actually open.",
     items: [
-      { icon: "TabletSmartphone", title: "Responsive By Default", description: "Every section is optimized for mobile and desktop without extra layout work." },
-      { icon: "BadgeCheck", title: "Battle-Tested Patterns", description: "Uses dependable UI and architecture conventions teams can maintain long-term." },
-      { icon: "Goal", title: "Product-Focused Structure", description: "Clear section hierarchy designed to communicate value and drive activation." },
-      { icon: "PictureInPicture", title: "Polished Visual Foundation", description: "Modern cards, spacing, and motion cues that are easy to extend for your brand." },
-      { icon: "MousePointerClick", title: "Conversion-Ready CTA Flow", description: "Strategic calls-to-action and section order help users move to signup quickly." },
-      { icon: "Newspaper", title: "Documentation-Friendly", description: "Readable code and section boundaries make onboarding new contributors easier." },
+      { icon: "Users", title: "Contact & List Management", description: "Import, segment, and manage contacts with CSV support, tags, suppression, and opt-outs." },
+      { icon: "GalleryHorizontal", title: "Template Builder", description: "Beautiful drag-and-drop templates, reusable for any campaign, with merge tags." },
+      { icon: "Mail", title: "Campaign Scheduling", description: "Send or schedule one-off or recurring campaigns to any segment, with status tracking." },
+      { icon: "PieChart", title: "Analytics & Reporting", description: "Track open/click/bounce/unsubscribe rates per campaign and across your account." },
+      { icon: "Lock", title: "Data Privacy & Compliance", description: "Easy audit trail, opt-out self-service, and compliant user consent everywhere." },
+      { icon: "Settings2", title: "Multi-Tenant Workspaces", description: "Role-based access and isolated data keep your campaigns, lists, and reports safe." },
     ],
   },
 
   // ── Services ─────────────────────────────────────────────────────────────
   services: {
-    eyebrow: "Services",
-    heading: "Core starter capabilities",
+    eyebrow: "What Makes Us Different",
+    heading: "Powerful, usable and scalable",
     subtitle:
-      "A pragmatic baseline for SaaS products that need to move quickly without sacrificing quality.",
+      "InboxPilot is built for ease-of-use — but scales with your team as you grow.",
     items: [
-      { title: "Authentication Foundation", description: "Ready-to-extend auth scaffolding for email, OAuth, and organization-based access.", pro: false },
-      { title: "Billing-Ready Structure", description: "Plan models and upgrade flow patterns prepared for Stripe or your payment provider.", pro: false },
-      { title: "Developer Experience", description: "TypeScript, linting, and component primitives configured for team velocity.", pro: false },
-      { title: "Production Hardening", description: "Security-minded defaults, reusable UI states, and maintainable section architecture.", pro: true },
+      { title: "Import & CSV Export", description: "Bulk upload or export contacts, stats, or lists at any time.", pro: false },
+      { title: "Role Access Control", description: "Admin/user roles restrict campaign, list, and template actions.", pro: false },
+      { title: "Segment Anywhere", description: "Filter by list, tag, opt-in status, or custom fields across all views.", pro: false },
+      { title: "Analytics Export", description: "Download engagement reports to Excel or CSV for your workflow.", pro: true },
     ],
   },
 
   // ── Testimonials ─────────────────────────────────────────────────────────
   testimonials: {
     eyebrow: "Testimonials",
-    heading: "Teams shipping with Panda",
+    heading: "Why marketers trust InboxPilot",
     reviews: [
-      { image: "/demo-img.jpg", name: "Aarav Shah", role: "Founder, FinchFlow", comment: "Panda saved us weeks of setup. We launched our first paying plan in less than a sprint.", rating: 5.0 },
-      { image: "/demo-img.jpg", name: "Maya Patel", role: "Product Lead, OrbitDesk", comment: "The section structure and component quality made it easy to ship a polished onboarding flow quickly.", rating: 4.8 },
-      { image: "/demo-img.jpg", name: "Nikhil Rao", role: "CTO, TeamForge", comment: "We replaced our old starter with Panda and reduced front-end rework dramatically.", rating: 4.9 },
-      { image: "/demo-img.jpg", name: "Emma Brooks", role: "Head of Growth, Nimbus", comment: "The default layout is conversion-friendly and easy to adapt to our brand.", rating: 5.0 },
-      { image: "/demo-img.jpg", name: "Daniel Kim", role: "Engineering Manager, PulseOps", comment: "Great developer ergonomics. New engineers onboarded fast and started shipping immediately.", rating: 5.0 },
-      { image: "/demo-img.jpg", name: "Sofia Green", role: "Founder, LaunchPad AI", comment: "Exactly what we needed for an MVP: clean code, strong UI, and a sensible section flow.", rating: 4.9 },
+      { image: "/demo-img.jpg", name: "Jessica Martin", role: "Head of Marketing, OmniBank", comment: "InboxPilot let us send our first campaign in less than a day. Loved segmenting lists and seeing results immediately.", rating: 5.0 },
+      { image: "/demo-img.jpg", name: "Samuel Chen", role: "Founder, LaunchGrowth", comment: "Best deliverability we've ever seen—our open and click rates jumped by 30% after switching.", rating: 4.9 },
+      { image: "/demo-img.jpg", name: "Priya Shah", role: "Campaign Strategist, Marketly", comment: "Love the analytics dashboard. The opt-out and compliance features help us stay ahead of privacy rules.", rating: 5.0 },
+      { image: "/demo-img.jpg", name: "Leonardo Ortega", role: "COO, AdWise", comment: "Easy for both marketers and our sales team. All-in-one, no integrations needed.", rating: 4.8 },
+      { image: "/demo-img.jpg", name: "Kelly James", role: "Growth Lead, Lumenly", comment: "No more manual CSV wrangling. InboxPilot just works—so we can focus on content and results.", rating: 5.0 },
     ],
   },
 
   // ── Team ─────────────────────────────────────────────────────────────────
   team: {
     eyebrow: "Team",
-    heading: "Meet the Panda team",
+    heading: "Meet the InboxPilot team",
     members: [
       {
         imageUrl: "/team1.jpg",
-        firstName: "Leo",
-        lastName: "Miranda",
-        positions: ["Lead Engineer", "Starter Architecture"],
+        firstName: "Chirag",
+        lastName: "Dodiya",
+        positions: ["Founder & CEO", "Product Vision"],
         socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-          { name: "X", url: "https://x.com/leo_mirand4" },
+          { name: "LinkedIn", url: "https://www.linkedin.com/in/chiragdodiya" },
+          { name: "Github", url: "https://github.com/chiragdodiya" },
         ],
       },
       {
@@ -288,68 +138,18 @@ export const defaultHomeContent: HomeContent = {
         lastName: "Moore",
         positions: ["Product Designer"],
         socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "X", url: "https://x.com/leo_mirand4" },
+          { name: "LinkedIn", url: "https://www.linkedin.com/in/elizabethmoore" },
+          { name: "X", url: "https://x.com/elizabethmoore" },
         ],
       },
       {
         imageUrl: "/team3.jpg",
-        firstName: "David",
-        lastName: "Diaz",
-        positions: ["Platform Engineer", "AI Integrations"],
+        firstName: "Samir",
+        lastName: "Patel",
+        positions: ["Lead Engineer", "Deliverability"],
         socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-        ],
-      },
-      {
-        imageUrl: "/team1.jpg",
-        firstName: "Sarah",
-        lastName: "Robinson",
-        positions: ["Cloud Engineer", "Kubernetes"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-          { name: "X", url: "https://x.com/leo_mirand4" },
-        ],
-      },
-      {
-        imageUrl: "/team2.jpg",
-        firstName: "Michael",
-        lastName: "Holland",
-        positions: ["DevOps Engineer", "CI/CD"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-        ],
-      },
-      {
-        imageUrl: "/team3.jpg",
-        firstName: "Zoe",
-        lastName: "Garcia",
-        positions: ["Frontend Engineer", "Design Systems"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-        ],
-      },
-      {
-        imageUrl: "/team1.jpg",
-        firstName: "Evan",
-        lastName: "James",
-        positions: ["Backend Engineer"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-          { name: "X", url: "https://x.com/leo_mirand4" },
-        ],
-      },
-      {
-        imageUrl: "/team2.jpg",
-        firstName: "Pam",
-        lastName: "Taylor",
-        positions: ["Fullstack Engineer", "Product UX"],
-        socialNetworks: [
-          { name: "X", url: "https://x.com/leo_mirand4" },
+          { name: "LinkedIn", url: "https://www.linkedin.com/in/samirpatel" },
+          { name: "Github", url: "https://github.com/samirpatel" },
         ],
       },
     ],
@@ -357,34 +157,40 @@ export const defaultHomeContent: HomeContent = {
 
   // ── Pricing ──────────────────────────────────────────────────────────────
   pricing: {
-    eyebrow: "Pricing",
-    heading: "Pricing for every stage",
-    subtitle: "Start lean, then scale to enterprise-grade workflows as your product grows.",
+    eyebrow: "Transparent Pricing",
+    heading: "Plans for every business",
+    subtitle: "Simple, honest pricing—no deliverability caps, unlimited campaigns, generous contact limits.",
     priceSuffix: "/month",
     plans: [
       {
-        title: "Starter",
+        title: "Free",
         popular: false,
         price: 0,
-        description: "Ideal for prototypes and small internal tools.",
-        buttonText: "Start for free",
-        benefits: ["Up to 3 teammates", "Basic auth patterns", "Core landing sections", "Community support", "Deploy-ready setup"],
+        description: "For solopreneurs and startups getting started with email marketing. No credit card required.",
+        buttonText: "Start Free",
+        benefits: ["Up to 500 contacts", "Unlimited campaigns", "Analytics included", "GDPR-compliant", "Email support"],
       },
       {
         title: "Growth",
         popular: true,
         price: 49,
-        description: "Best for product teams shipping customer-facing SaaS.",
-        buttonText: "Start trial",
-        benefits: ["Unlimited teammates", "Advanced section set", "Billing-ready models", "Priority support", "Team workflows"],
+        description: "Best for growing marketing teams and SMBs with full analytics and segmentation.",
+        buttonText: "Start Trial",
+        benefits: [
+          "Up to 20,000 contacts",
+          "Unlimited campaigns",
+          "Segmented lists/tags",
+          "Role-based access",
+          "Deliverability AI",
+        ],
       },
       {
         title: "Enterprise",
         popular: false,
         price: 199,
-        description: "For teams requiring compliance, support SLAs, and custom rollout.",
-        buttonText: "Contact sales",
-        benefits: ["Security review support", "SSO/SAML integration path", "Dedicated onboarding", "Phone and email support", "Architecture advisory"],
+        description: "For large orgs needing custom compliance/audit, dedicated support, and API access.",
+        buttonText: "Contact Us",
+        benefits: ["Unlimited contacts", "Advanced analytics", "Custom onboarding", "Priority support", "Every compliance tool"],
       },
     ],
   },
@@ -392,44 +198,43 @@ export const defaultHomeContent: HomeContent = {
   // ── Contact ──────────────────────────────────────────────────────────────
   contact: {
     eyebrow: "Contact",
-    heading: "Talk to the Panda team",
+    heading: "Questions? Connect with the InboxPilot team",
     description:
-      "Need help customizing the starter, planning architecture, or accelerating launch? Share your goals and timeline.",
-    mailtoAddress: "hello@panda.dev",
+      "Our team is here to help you get the most out of InboxPilot — whether you're looking to migrate, integrate, or just launch your first campaign.",
+    mailtoAddress: "hi@chirag.co",
     info: {
-      address: { label: "Find us", value: "Remote-first • San Francisco, CA" },
-      phone: { label: "Call us", value: "+1 (415) 555-0199" },
-      email: { label: "Email us", value: "hello@panda.dev" },
-      hours: { label: "Visit us", value: ["Monday - Friday", "9AM - 6PM PT"] },
+      address: { label: "Headquarters", value: "Remote, proudly global" },
+      phone: { label: "Contact", value: "" },
+      email: { label: "Email", value: "hi@chirag.co" },
+      hours: { label: "Support Hours", value: ["Monday - Friday", "8AM - 6PM UTC"] },
     },
-    formSubjects: ["Starter Demo", "Architecture Review", "Design System", "Billing Integration", "Enterprise Plan"],
-    formSubmitLabel: "Send inquiry",
+    formSubjects: ["Platform Demo", "Migration", "Integration", "Deliverability", "Compliance", "Other"],
+    formSubmitLabel: "Send message",
   },
 
   // ── FAQ ──────────────────────────────────────────────────────────────────
   faq: {
     eyebrow: "FAQ",
-    heading: "Common Questions",
+    heading: "InboxPilot Common Questions",
     items: [
-      { question: "Is Panda free to start with?", answer: "Yes. You can start with the core template and customize it for your product." },
-      { question: "Can I use this for a production SaaS app?", answer: "Yes. The starter is designed for production-minded teams with scalable structure and reusable UI patterns." },
-      { question: "Does it support dark mode and responsive design?", answer: "Yes. The template includes theme support and responsive layouts across major sections." },
-      { question: "Can I plug in my own auth and billing provider?", answer: "Yes. The structure is provider-agnostic and easy to adapt for your stack." },
-      { question: "How quickly can I launch with Panda?", answer: "Most teams can ship an MVP in days by reusing existing sections and starter patterns." },
+      { question: "Is InboxPilot free to start?", answer: "Yes, you can use our Free plan to get started, no credit card needed." },
+      { question: "Can I import contacts from CSV or Excel?", answer: "Absolutely. InboxPilot supports CSV import and export for contacts, lists, and analytics." },
+      { question: "How does InboxPilot handle unsubscribes?", answer: "Every campaign includes a required unsubscribe link and full compliance monitoring." },
+      { question: "Does InboxPilot include analytics?", answer: "Yes! Get per-campaign and account-wide reports on opens, clicks, bounces, and more." },
+      { question: "Is my data safe and private?", answer: "Always. We use strong encryption, tenant isolation, and full privacy/support for compliance standards." },
     ],
   },
 
   // ── Footer ───────────────────────────────────────────────────────────────
   footer: {
-    brandName: "Panda",
+    brandName: "InboxPilot",
     columns: [
       {
         heading: "Contact",
         links: [
-          { label: "hello@panda.dev", href: "mailto:hello@panda.dev" },
-          { label: "Github", href: "#" },
-          { label: "Twitter", href: "https://x.com" },
-          { label: "Discord", href: "https://discord.com" },
+          { label: "hi@chirag.co", href: "mailto:hi@chirag.co" },
+          { label: "LinkedIn", href: "https://www.linkedin.com/in/chiragdodiya" },
+          { label: "Github", href: "https://github.com/chiragdodiya" },
         ],
       },
       {
@@ -441,46 +246,46 @@ export const defaultHomeContent: HomeContent = {
         ],
       },
       {
-        heading: "Help",
+        heading: "Compliance",
         links: [
-          { label: "Contact Us", href: "#contact" },
-          { label: "FAQ", href: "#faq" },
-          { label: "Docs", href: "https://nextjs.org/docs" },
+          { label: "GDPR Info", href: "#" },
+          { label: "Privacy Policy", href: "#" },
+          { label: "Terms of Service", href: "#" },
         ],
       },
       {
         heading: "Socials",
         links: [
-          { label: "GitHub", href: "https://github.com" },
-          { label: "Discord", href: "https://discord.com" },
-          { label: "X", href: "https://x.com" },
+          { label: "GitHub", href: "https://github.com/chiragdodiya" },
+          { label: "LinkedIn", href: "https://www.linkedin.com/in/chiragdodiya" },
         ],
       },
     ],
-    copyright: "\u00a9 2026 Panda SaaS App Builder Starter.",
+    copyright: "\u00a9 2026 InboxPilot. All rights reserved.",
     attribution: { label: "Built on Next.js", href: "https://nextjs.org" },
   },
 
   // ── Navbar ───────────────────────────────────────────────────────────────
   navbar: {
-    brandName: "Panda",
+    brandName: "InboxPilot",
     routes: [
-      { href: "/#testimonials", label: "Testimonials" },
-      { href: "/#team", label: "Team" },
+      { href: "/#features", label: "Features" },
+      { href: "/#how-it-works", label: "How It Works" },
+      { href: "/#pricing", label: "Pricing" },
       { href: "/#contact", label: "Contact" },
       { href: "/#faq", label: "FAQ" },
     ],
-    featureDropdownLabel: "Features",
-    featureImage: { src: "/demo-img.jpg", alt: "Panda preview" },
+    featureDropdownLabel: "Key Features",
+    featureImage: { src: "/demo-img.jpg", alt: "InboxPilot preview" },
     features: [
-      { title: "Auth, Billing, Teams", description: "Production-ready flows for sign-in, subscriptions, and organizations." },
-      { title: "UI + Design System", description: "Shadcn-based components with consistent theming and dark mode support." },
-      { title: "Deploy Fast", description: "Sane defaults for Next.js, TypeScript, and Vercel-first deployment." },
+      { title: "Contact Management", description: "Flexible import, tagging, segmentation, and simple opt-outs." },
+      { title: "Campaign Builder", description: "Build, schedule, and optimize stunning campaigns with ease." },
+      { title: "Analytics Reporting", description: "Get results in real-time for every send — no setup required." },
     ],
     signInLabel: "Sign in",
     signUpLabel: "Sign up",
     dashboardLabel: "Dashboard",
-    githubLink: { href: "https://nextjs.org/docs", ariaLabel: "View on GitHub" },
+    githubLink: { href: "https://github.com/chiragdodiya", ariaLabel: "View on GitHub" },
   },
 };
 
