@@ -45,11 +45,11 @@ export default async function DashboardLayout({
         <aside className="hidden w-[264px] shrink-0 border-r bg-card/50 md:flex md:flex-col">
           <div className="p-5">
             <div className="flex items-center gap-2.5">
-              <div className="grid size-8 place-items-center rounded-lg bg-foreground text-background text-sm font-bold shadow-sm">
-                P
+              <div className="grid size-8 place-items-center rounded-lg bg-primary text-background text-sm font-bold shadow-sm">
+                IP
               </div>
               {/* Dashboard Text Logo */}
-              <span className="font-semibold tracking-tight">Panda</span>
+              <span className="font-semibold tracking-tight text-primary text-lg">InboxPilot</span>
             </div>
           </div>
 
